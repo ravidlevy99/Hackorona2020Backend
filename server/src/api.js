@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const patients = require('./routes/patients.js')
+const patientsdal = require('./data-access-layer/patients.js');
 
 const app = express();
 
@@ -17,5 +18,6 @@ app.listen(PORT, () => {
     useNewUrlParser: true,
     useUnifiedTopology: true
   });
+  patientsdal.insertPatients();
     console.log(`App listening on port ${PORT}!`);
   });
